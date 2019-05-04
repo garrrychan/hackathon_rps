@@ -163,7 +163,6 @@ Pygments==2.3.1
 pyLDAvis==2.1.2
 pylint==2.3.1
 pymc3==3.6
-pyodbc==4.0.26
 pyOpenSSL==19.0.0
 pyparsing==2.4.0
 pyrsistent==0.14.11
