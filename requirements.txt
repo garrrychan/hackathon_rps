@@ -59,7 +59,6 @@ gensim==3.7.2
 gevent==1.4.0
 ghp-import==0.5.5
 glob2==0.6
-gmpy2==2.0.8
 graphviz==0.10.1
 greenlet==0.4.15
 gunicorn==19.9.0
