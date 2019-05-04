@@ -245,7 +245,6 @@ WTForms==2.2.1
 wurlitzer==1.0.2
 xlrd==1.2.0
 XlsxWriter==1.1.7
-xlwings==0.15.6
 xlwt==1.2.0
 zict==0.1.4
 zipp==0.3.3
