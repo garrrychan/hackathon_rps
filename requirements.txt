@@ -184,7 +184,6 @@ qtconsole==4.4.3
 QtPy==1.7.0
 quilt==2.9.15
 requests==2.21.0
-rise==0.0.0
 rope==0.14.0
 ruamel-yaml==0.15.46
 s3transfer==0.2.0
