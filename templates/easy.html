@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Java script requirements -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Rock Paper Scissors</title>
+  </head>
+    <body>
+
+    <nav class="navbar navbar-dark" style="background-color: #0A2472;">
+    <!-- Navbar content -->
+    <a class="navbar-brand" href="#">Rock Paper Scissors - Easy</a>
+    </nav>
+
+    <div class="container-fluid">
+    <br>
+      <p><b> Can you beat my bot?</b></p>
+      <p> This is a naive model, you are expected to win about 50% of the time. </p>
+      <!-- https://stackoverflow.com/a/19794878/3731467 -->
+      <form method="POST" action="/easy">
+        <input type="submit" class="btn btn-dark btn-lg" name="player_throw" value="🤘">
+        <input type="submit" class="btn btn-dark btn-lg" name="player_throw" value="📝">
+        <input type="submit" class="btn btn-dark btn-lg" name="player_throw" value="✂️">
+      </form>
+    </div>
+
+
+    {% if game %}
+    <br>
+    <div class="container-fluid">
+      <p><b>You chose:</b> <font color="black">{{ game['player'] }}</font></p>
+
+      <p><b>The AI chose: </b><font color="black">{{ game['bot'] }}</font></p>
+
+      <p><font color="0B7A75"><b>{{ "You " ~ game['result'] ~ "! Click again to play another round." }}</b></font></p>
+
+      <div class="alert alert-dark" role="alert">
+      <p><b>Your Win %</b>: <font color="black"> {{ game["win_rate"] }} </font></p></div>
+
+      <div class="alert alert-primary" role="alert">
+        <!-- Use ~ to join in Jinja -->
+        <p><b>Game Results</b>: <font color="black"> {{ "W:" ~ game["W"] ~ " L:" ~ game["L"]}}</font></p>
+        <a class="btn btn-success" href="/" role="button"> Change difficulty </a>
+      </div>
+      </div>
+
+
+
+    </div>
+    {% endif %}
+
+  </body>
+</html>
