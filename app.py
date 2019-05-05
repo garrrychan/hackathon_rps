@@ -12,7 +12,9 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 # capture results for win rates
-results = []
+results_easy = []
+results_medium = []
+results_hard = []
 
 # home page
 @app.route('/', methods=['GET', 'POST'])
@@ -27,10 +29,10 @@ def easy():
         player_throw = emoji_to_text(request.form['player_throw'])
         bot_throw = bot.throw(game)
         result = evaluate(player_throw, bot_throw)
-        results.append(result)
-        win_rate = win_rate_fn(results)
-        game["W"] = Counter(results)["win"]
-        game["L"] = Counter(results)["lose"]
+        results_easy.append(result)
+        win_rate = win_rate_fn(results_easy)
+        game["W"] = Counter(results_easy)["win"]
+        game["L"] = Counter(results_easy)["lose"]
         game['result'] = result
         game['player'] = player_throw
         game['bot'] = bot_throw
@@ -45,10 +47,10 @@ def medium():
         player_throw = emoji_to_text(request.form['player_throw'])
         bot_throw = bot.throw(player_throw)
         result = evaluate(player_throw, bot_throw)
-        results.append(result)
-        win_rate = win_rate_fn(results)
-        game["W"] = Counter(results)["win"]
-        game["L"] = Counter(results)["lose"]
+        results_medium.append(result)
+        win_rate = win_rate_fn(results_medium)
+        game["W"] = Counter(results_medium)["win"]
+        game["L"] = Counter(results_medium)["lose"]
         game['result'] = result
         game['player'] = player_throw
         game['bot'] = bot_throw
@@ -97,13 +99,13 @@ def hard():
         player_throw = emoji_to_text(request.form['player_throw'])
         bot_throw = bot.throw(game)
         result = evaluate(player_throw, bot_throw)
-        results.append(result)
-        game["W"] = Counter(results)["win"]
-        game["L"] = Counter(results)["lose"]
+        results_hard.append(result)
+        game["W"] = Counter(results_hard)["win"]
+        game["L"] = Counter(results_hard)["lose"]
         game['result'] = result
         game['player'] = player_throw
         game['bot'] = bot_throw
-        game["win_rate"] = round(win_rate_fn(results)*100,2)
+        game["win_rate"] = round(win_rate_fn(results_hard)*100,2)
         # load memory of games outcome and next_play
         memory = pd.read_csv('data/memory.csv')
         # update transition matrix for next prediction
