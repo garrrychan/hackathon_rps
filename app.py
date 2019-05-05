@@ -119,4 +119,4 @@ def hard():
     return render_template('hard.html', game=game, game_count=game_count)
 
 if __name__ == '__main__':
-    app.run(port=1111, debug=True)
+    app.run(debug=True)

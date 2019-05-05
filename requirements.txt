@@ -2,12 +2,10 @@ Flask==1.0.2
 scikit-learn==0.20.3
 numpy==1.16.3
 pandas==0.24.2
-Flask-Bootstrap==3.3.7.1
-Flask-Cors==3.0.7
 Flask-WTF==0.14.2
+WTForms==2.2.1
 gunicorn==19.9.0
 html5lib==1.0.1
 numpydoc==0.9.1
 Pygments==2.3.1
 Theano==1.0.4
-WTForms==2.2.1
